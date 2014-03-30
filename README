@@ -1,0 +1,17 @@
+ex1:
+
+Initscript was based off the skeleton. I made it check a fake pid file and that way it would default to updating the sshd.pid file. Then we set the module param
+with "cat" . We had to make it sleep for a second since it was a forking. And that process is fast...
+
+ex2:
+
+Hooking a readdir and filldir function. And we check if the file has the same name as the PID. We made a new file opts structure, which was the same except 
+for the readdir function.
+
+ex4:
+
+Changed the read function for the file of tcp and tcp6. Check the foreign and local address's ports. If this line has the port we are trying to hide in Hex,
+we will copy everything after this line over... And reduce "Read" by the amount of characters we deleted, so no bogus lines are detected. The same idea of 
+hooking through f_op is used.
+
+
